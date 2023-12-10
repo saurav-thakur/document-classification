@@ -7,6 +7,7 @@ nltk
 tqdm
 PyYAML
 notebook
+ipykernel
 python-box
 boto3
 mypy-boto3-s3

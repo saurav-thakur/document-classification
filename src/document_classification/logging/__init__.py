@@ -2,9 +2,9 @@ import os
 import sys
 import logging
 
-logging_str = "[%(asctime)s -- %(levelname)s -- %(lineno)d -- %(message)s]"
+logging_str = "[%(asctime)s : %(levelname)s : %(lineno)d : %(message)s]"
 logs_dir = "logs"
-log_filepath = os.path.join(logs_dir, "project_logs.logs")
+log_filepath = os.path.join(logs_dir, "project_logs.log")
 os.makedirs(logs_dir, exist_ok=True)
 
 
