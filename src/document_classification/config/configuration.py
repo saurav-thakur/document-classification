@@ -1,6 +1,6 @@
 from document_classification.constants import *
 from document_classification.utils.common import read_yaml, create_directories
-from document_classification.entity import DataIngestionConfig
+from document_classification.entity import DataIngestionConfig, DataValidationConfig
 
 
 class ConfigurationManager:
@@ -26,3 +26,17 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            root_dir=config.root_dir,
+            status_file=config.status_file,
+            required_files_list=config.required_files_list,
+            required_files_path=config.required_files_path,
+        )
+
+        return data_validation_config
