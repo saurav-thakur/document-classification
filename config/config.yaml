@@ -3,4 +3,10 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   local_data_file: dataset/ML/data/ocr
-  cleaned_dataset: artifacts/data_ingestion/dataset
+  cleaned_dataset: artifacts/data_ingestion/data
+
+data_validation:
+  root_dir: artifacts/data_validation
+  status_file: artifacts/data_validation/status.txt
+  required_files_list: ["train.csv", "test.csv"]
+  required_files_path: artifacts/data_ingestion/data
