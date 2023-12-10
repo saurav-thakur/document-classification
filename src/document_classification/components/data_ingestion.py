@@ -5,6 +5,8 @@ from document_classification.logging import logger
 from document_classification.utils.common import get_file_size, create_directories
 from document_classification.entity import DataIngestionConfig
 
+from sklearn.model_selection import train_test_split
+
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
@@ -61,7 +63,7 @@ class DataIngestion:
 
         return df
 
-    def collect_clean_and_save_data(self, dataset_name):
+    def collect_clean_split_and_save_data(self, train_data_name, test_data_name):
         file_saving_dir = self.config.cleaned_dataset
         dataset_directory = self.config.local_data_file
 
@@ -70,7 +72,16 @@ class DataIngestion:
         logger.info("Preprocessing Dataset")
         preprocessed_dataframe = self.data_collection()
 
-        logger.info(
-            f"Dataset Preprocessed and now saving to {file_saving_dir} as {dataset_name}")
-        preprocessed_dataframe.to_csv(
-            f"{file_saving_dir}/{dataset_name}", index=False)
+        logger.info("Data Preprocessed!!")
+
+        logger.info("Splitting data into train test")
+
+        # Split the data into training and testing sets
+        train, test = train_test_split(
+            preprocessed_dataframe, test_size=0.2, random_state=42)
+
+        train.to_csv(
+            f"{file_saving_dir}/{train_data_name}", index=False)
+
+        test.to_csv(
+            f"{file_saving_dir}/{test_data_name}", index=False)
