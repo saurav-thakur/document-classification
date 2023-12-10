@@ -23,7 +23,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def create_directory(path_to_directory: list, verbose: bool = True) -> None:
+def create_directories(path_to_directory: list, verbose=True):
 
     for path in path_to_directory:
         os.makedirs(path, exist_ok=True)

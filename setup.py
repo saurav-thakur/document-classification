@@ -18,6 +18,6 @@ setuptools.setup(
     description="document classification application",
     long_description=long_description,
     url=f"https://github.com/{REPO_NAME}/{REPO_NAME}",
-    package_dir={f"{SRC_REPO}": f"src/{SRC_REPO}"},
+    package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
 )
