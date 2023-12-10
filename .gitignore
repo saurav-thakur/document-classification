@@ -1,3 +1,10 @@
+# new ignored files and folders
+venvdocumentclassification/
+template.py
+
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
