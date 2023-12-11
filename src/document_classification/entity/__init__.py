@@ -21,3 +21,11 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir: Path
     ingested_train_csv_file_path: Path
+
+
+@dataclass
+class ModelTrainerConfig:
+    root_dir: Path
+    train_data_path: Path
+    tokenizer_path: Path
+    save_model_path: Path
