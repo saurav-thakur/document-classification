@@ -23,9 +23,18 @@ class DataTransformationConfig:
     ingested_train_csv_file_path: Path
 
 
-@dataclass
+@dataclass(frozen=True)
 class ModelTrainerConfig:
     root_dir: Path
     train_data_path: Path
     tokenizer_path: Path
     save_model_path: Path
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    tokenizer_path: Path
+    metrics_file_name: Path
