@@ -15,3 +15,9 @@ class DataValidationConfig:
     status_file: str
     required_files_list: list
     required_files_path: Path
+
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    ingested_train_csv_file_path: Path

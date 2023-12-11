@@ -10,3 +10,7 @@ data_validation:
   status_file: artifacts/data_validation/status.txt
   required_files_list: ["train.csv", "test.csv"]
   required_files_path: artifacts/data_ingestion/data
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  ingested_train_csv_file_path: artifacts/data_ingestion/data/train.csv
