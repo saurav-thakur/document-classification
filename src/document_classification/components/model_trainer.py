@@ -50,11 +50,11 @@ class ModelTrainer:
                       output_dim=50, input_length=100))
             model.add(LSTM(units=50, return_sequences=True))
             model.add(LSTM(units=50))
-            model.add(Dense(units=5, activation='softmax'))
+            model.add(Dense(units=self.config.CLASSES, activation='softmax'))
 
             model.compile(loss='sparse_categorical_crossentropy',
                           optimizer='adam', metrics=['accuracy'])
-            model.fit(X_train_padded_sequences, y_train, epochs=20,
+            model.fit(X_train_padded_sequences, y_train, epochs=self.config.EPOCHS, batch_size=self.config.BATCH_SIZE,
                       validation_data=(X_test_padded_sequences, y_test))
 
             # Save the entire model as a `.keras` zip archive.
