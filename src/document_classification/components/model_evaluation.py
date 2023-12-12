@@ -34,7 +34,7 @@ class ModelEvaluation:
             })
             X_sequences = tokenizer.texts_to_sequences(X)
             X_padded_sequences = pad_sequences(
-                sequences=X_sequences, padding="post", maxlen=100)
+                sequences=X_sequences, padding="post", maxlen=60)
 
             self.model = tf.keras.models.load_model(self.config.model_path)
             # Evaluate the restored model

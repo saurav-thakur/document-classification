@@ -40,14 +40,14 @@ class ModelTrainer:
             X_test_sequences = tokenizer.texts_to_sequences(X_test)
 
             X_train_padded_sequences = pad_sequences(
-                sequences=X_train_sequences, padding="post", maxlen=100)
+                sequences=X_train_sequences, padding="post", maxlen=60)
             X_test_padded_sequences = pad_sequences(
-                sequences=X_test_sequences, padding="post", maxlen=100)
+                sequences=X_test_sequences, padding="post", maxlen=60)
 
             vocab_size = len(tokenizer.word_index) + 1
             model = Sequential()
             model.add(Embedding(input_dim=vocab_size,
-                      output_dim=50, input_length=100))
+                      output_dim=50, input_length=60))
             model.add(LSTM(units=50, return_sequences=True))
             model.add(LSTM(units=50))
             model.add(Dense(units=self.config.CLASSES, activation='softmax'))
