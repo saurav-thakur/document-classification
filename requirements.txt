@@ -16,4 +16,5 @@ fastapi
 uvicorn
 Jinja2
 pipreqs
+mlflow
 -e .

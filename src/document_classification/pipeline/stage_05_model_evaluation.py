@@ -14,5 +14,6 @@ class ModelEvaluationPipeline:
             model_evaluation = ModelEvaluation(
                 config=model_evaluation_config)
             model_evaluation.get_model_evaluation()
+            model_evaluation.log_score_into_mlflow()
         except Exception as e:
             raise e

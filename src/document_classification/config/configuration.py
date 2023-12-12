@@ -1,6 +1,7 @@
 from document_classification.constants import *
 from document_classification.utils.common import read_yaml, create_directories
 from document_classification.entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig
+import os
 
 
 class ConfigurationManager:
@@ -63,6 +64,9 @@ class ConfigurationManager:
             train_data_path=config.train_data_path,
             tokenizer_path=config.tokenizer_path,
             save_model_path=config.save_model_path,
+            BATCH_SIZE=self.params.BATCH_SIZE,
+            EPOCHS=self.params.EPOCHS,
+            CLASSES=self.params.CLASSES,
 
         )
 
@@ -79,6 +83,10 @@ class ConfigurationManager:
             model_path=config.model_path,
             tokenizer_path=config.tokenizer_path,
             metrics_file_name=config.metrics_file_name,
+            all_params=self.params,
+            # set environment variable before using this else this will return None.
+            mlflow_uri=os.getenv("MLFLOW_TRACKING_URI")
+
 
 
         )

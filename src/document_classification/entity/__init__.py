@@ -29,6 +29,9 @@ class ModelTrainerConfig:
     train_data_path: Path
     tokenizer_path: Path
     save_model_path: Path
+    BATCH_SIZE: int
+    EPOCHS: int
+    CLASSES: int
 
 
 @dataclass(frozen=True)
@@ -38,3 +41,5 @@ class ModelEvaluationConfig:
     model_path: Path
     tokenizer_path: Path
     metrics_file_name: Path
+    mlflow_uri: str
+    all_params: dict

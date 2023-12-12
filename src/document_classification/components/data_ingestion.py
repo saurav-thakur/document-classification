@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+import string
 from document_classification.logging import logger
 from document_classification.utils.common import get_file_size, create_directories
 from document_classification.entity import DataIngestionConfig
@@ -63,6 +64,15 @@ class DataIngestion:
 
         return df
 
+    def remove_punctuation(self, text):
+        return ''.join([c for c in text if c not in string.punctuation])
+
+    def cleaning_data(self, data):
+        data.dropna(inplace=True, axis=0)
+        data["Letters"] = data["Letters"].str.lower()
+        data["Letters"] = data["Letters"].apply(self.remove_punctuation)
+        return data
+
     def collect_clean_split_and_save_data(self, train_data_name, test_data_name):
         file_saving_dir = self.config.cleaned_dataset
         dataset_directory = self.config.local_data_file
@@ -72,13 +82,17 @@ class DataIngestion:
         logger.info("Preprocessing Dataset")
         preprocessed_dataframe = self.data_collection()
 
-        logger.info("Data Preprocessed!!")
+        logger.info("Data Preprocessing Completed. Now moving to data cleaning")
 
-        logger.info("Splitting data into train test")
+        df_cleaned = self.cleaning_data(preprocessed_dataframe)
+
+        logger.info("Data Cleaned. Now Splitting data into train test")
 
         # Split the data into training and testing sets
         train, test = train_test_split(
-            preprocessed_dataframe, test_size=0.2, random_state=42)
+            df_cleaned, test_size=0.2, random_state=42)
+
+        logger.info(f"Saving the splitted data in {file_saving_dir}")
 
         train.to_csv(
             f"{file_saving_dir}/{train_data_name}", index=False)
