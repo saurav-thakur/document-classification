@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/End%20To%20End%20ML/document-classification/mlruns/0/8a045ee484be444c9c9f1a0918877f87/artifacts
+end_time: 1702441980095
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8a045ee484be444c9c9f1a0918877f87
+run_name: crawling-rook-426
+run_uuid: 8a045ee484be444c9c9f1a0918877f87
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702441926784
+status: 3
+tags: []
+user_id: Saurav
