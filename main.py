@@ -67,16 +67,16 @@ except Exception as e:
     raise e
 
 
-STAGE_NAME = "Predicting Documents"
-try:
-    logger.info(f">>>>>> {STAGE_NAME} Started <<<<<<")
-    model_prediction = PredictionPipeline()
-    model_prediction.predict(
-        text="~~Original Message-—— From: Chaikin, Karen Sent: Monday, June 18, 2001 7:12 PM To: Washington, Shuanise; Fernandez, Henry L.; Moore, Edna Subject: RE: Experience Education | Aby6rZ19807"
+# STAGE_NAME = "Predicting Documents"
+# try:
+#     logger.info(f">>>>>> {STAGE_NAME} Started <<<<<<")
+#     model_prediction = PredictionPipeline()
+#     model_prediction.predict(
+#         text="~~Original Message-—— From: Chaikin, Karen Sent: Monday, June 18, 2001 7:12 PM To: Washington, Shuanise; Fernandez, Henry L.; Moore, Edna Subject: RE: Experience Education | Aby6rZ19807"
 
-    )
-    logger.info(
-        f">>>>>> {STAGE_NAME} Completed <<<<<<\n\nx====================x")
-except Exception as e:
-    logger.exception(e)
-    raise e
+#     )
+#     logger.info(
+#         f">>>>>> {STAGE_NAME} Completed <<<<<<\n\nx====================x")
+# except Exception as e:
+#     logger.exception(e)
+#     raise e
