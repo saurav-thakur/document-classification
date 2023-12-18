@@ -38,6 +38,13 @@ pip install -r requirements.txt
 
 ## How to run this project
 
+To run this project run
+
+```
+python app.py
+
+```
+
 If you want to track the evaluation results using mlflow and dagshub, you will need to setup the dagshub account and connect it to your github repository and set up environment variables.
 
 You can set up env variables for the running session on gitbash using the following commands.
